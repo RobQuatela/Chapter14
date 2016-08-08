@@ -13,26 +13,7 @@ public class Calculator extends JFrame {
 
 	private JTextField field;
 	private JButton[][] buttons;
-	private JButton[] secondRow;
-	private JButton[] thirdRow;
-	private JButton[] fourthRow;
-	private JButton btn1;
-	private JButton btn2;
-	private JButton btn3;
-	private JButton btn4;
-	private JButton btn5;
-	private JButton btn6;
-	private JButton btn7;
-	private JButton btn8;
-	private JButton btn9;
-	private JButton btn0;
-	private JButton btnDivide;
-	private JButton btnAdd;
-	private JButton btnSubtract;
-	private JButton btnEqual;
-	private JButton btnDot;
-	private JButton btnMultiply;
-	private GridLayout layout;
+	private GridLayout gridLayout;
 	private BorderLayout borderLayout;
 	private Container container;
 	private JPanel textPanel;
@@ -41,19 +22,18 @@ public class Calculator extends JFrame {
 	public Calculator() {
 		super("Calculator");
 		
-		layout = new GridLayout(4,4);
+		//set layout for container
+		borderLayout = new BorderLayout();
+		
+		//create container and set the border layout to the container
 		container = getContentPane();
-		container.setLayout(layout);
+		container.setLayout(borderLayout);
 		
-		textPanel = new JPanel();
-		//borderLayout = new BorderLayout();
-		textPanel.setLayout(layout);
-		
-		
+		//create the textfield and add textfield to the panel
 		field = new JTextField();
-		textPanel.add(field);
-		add(textPanel, BorderLayout.NORTH);
+		add(field, BorderLayout.NORTH);
 		
+		//create dual array for buttons
 		buttons = new JButton[4][4];
 		buttons[0][0] = new JButton("7");
 		buttons[0][1] = new JButton("8");
@@ -72,92 +52,21 @@ public class Calculator extends JFrame {
 		buttons[3][2] = new JButton("=");
 		buttons[3][3] = new JButton("+");
 		
+		//declare the grid layout
+		//declare buttonPanel set layout for button panel
+		//add grid layout to the panel
+		gridLayout = new GridLayout(4,4);
+		buttonPanel = new JPanel();
+		buttonPanel.setLayout(gridLayout);
 		
+		//add button array to buttonPanel
+		for(int i = 0; i < buttons.length; i++) {
+			for(int t = 0; t < buttons[i].length; t++) {
+				buttonPanel.add(buttons[i][t]);
+			}
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		secondRow = new JButton[4];
-		secondRow[0] = new JButton("4");
-		secondRow[1] = new JButton("5");
-		secondRow[2] = new JButton("6");
-		secondRow[3] = new JButton("*");
-		
-		thirdRow = new JButton[4];
-		thirdRow[0] = new JButton("1");
-		thirdRow[1] = new JButton("2");
-		thirdRow[2] = new JButton("3");
-		thirdRow[3] = new JButton("-");
-		
-		fourthRow = new JButton[4];
-		fourthRow[0] = new JButton("0");
-		fourthRow[1] = new JButton(".");
-		fourthRow[2] = new JButton("=");
-		fourthRow[3] = new JButton("+");
-		
-		*/
-		
-		
-		
-		
-		
-		
-		/*btn7 = new JButton("7");
-		container.add(btn7);
-		
-		btn8 = new JButton("8");
-		add(btn8);
-		
-		btn9 = new JButton("9");
-		add(btn9);
-		
-		btnDivide = new JButton("/");
-		add(btnDivide);
-		
-		btn4 = new JButton("9");
-		add(btn4);
-		
-		btn5 = new JButton("5");
-		add(btn5);
-		
-		btn6 = new JButton("6");
-		add(btn6);
-		
-		btnMultiply = new JButton("*");
-		add(btnMultiply);
-		
-		btn1 = new JButton("1");
-		add(btn1);
-		
-		btn2 = new JButton("2");
-		add(btn2);
-		
-		btn3 = new JButton("3");
-		add(btn3);
-		
-		btnSubtract = new JButton("-");
-		add(btnSubtract);
-		
-		btn0 = new JButton("0");
-		add(btn0);
-		
-		btnDot = new JButton(".");
-		add(btnDot);
-		
-		btnEqual = new JButton("=");
-		add(btnEqual);
-		
-		btnAdd = new JButton("+");
-		add(btnAdd);*/
-		
+		//add butonPanel to frame
+		add(buttonPanel);		
 	}
 }

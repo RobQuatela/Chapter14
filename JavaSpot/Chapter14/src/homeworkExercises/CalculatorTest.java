@@ -7,7 +7,7 @@ public class CalculatorTest {
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
 		calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		calc.setSize(500,500);
+		calc.setSize(300,300);
 		calc.setVisible(true);
 	}
 }
